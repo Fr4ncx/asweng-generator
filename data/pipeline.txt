@@ -1,0 +1,89 @@
+----------------------
+DataCollection task
+
+Executed at: 1517072186
+----------------------
+
+Database --
+
+Port: 27017
+User: fr4ncx
+Pwd: pwd
+
+Conditions --  
+         Or
+age -> 24
+name -> Francesco
+
+
+Output data :
+
+Document: 
+- age = 24 (INT)
+
+----------------------
+DataAnalysis task
+
+Executed at: 67785666666
+----------------------
+
+- Category: Classification
+
+
+Output data :
+
+Document: 
+- name = francesco (INT)
+
+----------------------
+DataCleaning task
+
+Executed at: 55444
+----------------------
+
+Operation list:
+
+- RemoveNull(remove null attribute)
+
+- FormatData(dates attribute)
+
+
+Output data :
+
+----------------------
+DataVisualization task
+
+Not executed yet...
+----------------------
+
+- Graph
+Number of elements(node and edge) 3
+
+- Table
+Number of rows 2
+
+
+Output data :
+
+----------------------
+DataExport task
+
+Executed at: 66767678
+----------------------
+
+Export format: JSON
+
+
+
+---- End of the PipeLine ----
+
+
+
+
+
+
+
+
+
+
+
