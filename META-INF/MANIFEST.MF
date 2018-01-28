@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Acceleo AswengGen Module Runtime Plug-in
-Bundle-SymbolicName: org.eclipse.acceleo.module.asweng.gen
+Bundle-SymbolicName: asweng.generator
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.eclipse.acceleo.module.asweng.gen.Activator
+Bundle-Activator: asweng.generator.Activator
 Bundle-Vendor: Eclipse Modeling Project
 Require-Bundle: org.eclipse.core.runtime, 
  org.eclipse.emf.ecore,
@@ -19,6 +19,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Import-Package: Data_Analysis
-Bundle-ClassPath: bin/,
- .
+Export-Package: asweng.generator
+Bundle-ClassPath: .,
+ bin/
 

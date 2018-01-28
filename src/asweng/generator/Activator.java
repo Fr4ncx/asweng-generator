@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.acceleo.module.asweng.gen;
+package asweng.generator;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;

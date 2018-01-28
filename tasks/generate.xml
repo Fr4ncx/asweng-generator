@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="generate" name="org.eclipse.acceleo.module.asweng.gen">
+<project default="generate" name="asweng.generator">
     <property name="ECLIPSE_HOME" value="../../../Desktop/eclipse_epsilon/eclipse-epsilon-1.4-win32-x86_64"/>
     <property name="ECLIPSE_WORKSPACE" value="../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
-    <path id="org.eclipse.acceleo.module.asweng.gen.libraryclasspath">
-        <pathelement location="${ECLIPSE_WORKSPACE}/org.eclipse.acceleo.module.asweng.gen/bin"/>
+    <path id="asweng.generator.libraryclasspath">
+        <pathelement location="${ECLIPSE_WORKSPACE}/asweng.generator/bin"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.12.0.v20160606-1342.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/javax.inject_1.0.0.v20091030.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.11.1.v20160708-1632.jar"/>
@@ -32,23 +32,23 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_15.0.0.v201403281430.jar"/>
     </path>
 
-    <path id="org.eclipse.acceleo.module.asweng.gen.classpath">
-        <path refid="org.eclipse.acceleo.module.asweng.gen.libraryclasspath"/>
+    <path id="asweng.generator.classpath">
+        <path refid="asweng.generator.libraryclasspath"/>
     </path>
 
     <!-- The classpath with only the jars available in the plugin folder of Eclipse -->
-    <path id="org.eclipse.acceleo.module.asweng.gen.libraryclasspath.alljars">
-        <pathelement location="../org.eclipse.acceleo.module.asweng.gen/bin"/>
+    <path id="asweng.generator.libraryclasspath.alljars">
+        <pathelement location="../asweng.generator/bin"/>
         <fileset dir="${ECLIPSE_HOME}/plugins/" includes="*.jar"/>
     </path>
 
-    <path id="org.eclipse.acceleo.module.asweng.gen.classpath.alljars">
-        <path refid="org.eclipse.acceleo.module.asweng.gen.libraryclasspath.alljars"/>
+    <path id="asweng.generator.classpath.alljars">
+        <path refid="asweng.generator.libraryclasspath.alljars"/>
     </path>
 
     <!-- The default task with the jars used by this project -->
     <target name="generate">
-        <java classname="org.eclipse.acceleo.module.asweng.Generate" classpathref="org.eclipse.acceleo.module.asweng.gen.classpath">
+        <java classname="asweng.generator.Generate" classpathref="asweng.generator.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
@@ -59,7 +59,7 @@
         Keep in mind that having two versions of the same jar can create problems
     -->
     <target name="generate.alljars">
-        <java classname="org.eclipse.acceleo.module.asweng.Generate" classpathref="org.eclipse.acceleo.module.asweng.gen.classpath">
+        <java classname="asweng.generator.Generate" classpathref="asweng.generator.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
