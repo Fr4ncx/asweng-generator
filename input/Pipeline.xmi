@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data_Analysis:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Data_Analysis="http://www.example.org/data_Analysis">
+  <tasks xsi:type="Data_Analysis:DataCollectionTask" toFlow="//@flows.0" executionTimestamp="1517224013" isExecuted="true">
+    <source xsi:type="Data_Analysis:RestService" url="" user="root" pwd="1234"/>
+    <inputSchema>
+      <schemaAttributes name="LightIntensity"/>
+      <schemaAttributes name="DeviceId"/>
+      <schemaAttributes name="idMeasure"/>
+    </inputSchema>
+  </tasks>
+  <tasks xsi:type="Data_Analysis:DataCollectionTask" toFlow="//@flows.1">
+    <source xsi:type="Data_Analysis:RestService" user="root" pwd="12345"/>
+    <inputSchema>
+      <schemaAttributes name="DeviceId"/>
+      <schemaAttributes name="idMeasure"/>
+      <schemaAttributes name="Coordinates"/>
+    </inputSchema>
+  </tasks>
+  <tasks xsi:type="Data_Analysis:DataIntegrationTask" toFlow="//@flows.2" executionTimestamp="1517224014" isExecuted="true" joinAttributes="//@schemas.0" outAttributes="//@schemas.1"/>
+  <tasks xsi:type="Data_Analysis:DataCleaning" toFlow="//@flows.3" executionTimestamp="1517224015" isExecuted="true">
+    <operations xsi:type="Data_Analysis:FormatData"/>
+    <operations xsi:type="Data_Analysis:RemoveNull"/>
+  </tasks>
+  <tasks xsi:type="Data_Analysis:DataAnalysisTask" toFlow="//@flows.4" executionTimestamp="1517224016" isExecuted="true">
+    <category xsi:type="Data_Analysis:Prediction"/>
+    <Analysis/>
+  </tasks>
+  <tasks xsi:type="Data_Analysis:DataVisualizationTask" executionTimestamp="1517224017" isExecuted="true">
+    <visualElements xsi:type="Data_Analysis:Diagram"/>
+  </tasks>
+  <flows toTask="//@tasks.2">
+    <collection>
+      <documents>
+        <attributes name="LightIntensity" value="5000"/>
+        <attributes name="DeviceId" value="1"/>
+        <attributes name="idMeasure" value="1234567"/>
+      </documents>
+      <documents>
+        <attributes name="LightIntensity" value="4000"/>
+        <attributes name="DeviceId" value="2"/>
+        <attributes name="idMeasure" value="1234568"/>
+      </documents>
+    </collection>
+  </flows>
+  <flows toTask="//@tasks.2">
+    <collection>
+      <documents>
+        <attributes name="DeviceId" value="1"/>
+        <attributes name="idMeasure" value="1234567"/>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+      </documents>
+      <documents>
+        <attributes name="DeviceId" value="2"/>
+        <attributes name="idMeasure" value="1234568"/>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+      </documents>
+    </collection>
+  </flows>
+  <flows toTask="//@tasks.3">
+    <collection>
+      <documents>
+        <attributes name="idMeasure" value="1234567"/>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+        <attributes name="DeviceId"/>
+        <attributes name="LightIntensity" value="5000"/>
+      </documents>
+      <documents>
+        <attributes name="idMeasure" value="1234568"/>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+        <attributes name="DeviceId" value="2"/>
+        <attributes name="LightIntensity" value="4000"/>
+      </documents>
+    </collection>
+  </flows>
+  <flows toTask="//@tasks.4">
+    <collection>
+      <documents>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+        <attributes name="LightIntensity"/>
+      </documents>
+      <documents>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+        <attributes name="LightIntensity"/>
+      </documents>
+    </collection>
+  </flows>
+  <flows toTask="//@tasks.5">
+    <collection>
+      <documents>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+        <attributes name="LightIntensity" value="5000"/>
+      </documents>
+      <documents>
+        <attributes name="Coordinates" type="STRING" value="45.799289699999996, 9.092762"/>
+        <attributes name="LightIntensity"/>
+      </documents>
+    </collection>
+  </flows>
+  <schemas>
+    <schemaAttributes name="idMeasure"/>
+  </schemas>
+  <schemas>
+    <schemaAttributes name="DeviceId"/>
+    <schemaAttributes name="Coordinates"/>
+    <schemaAttributes name="LightIntensity"/>
+  </schemas>
+</Data_Analysis:Pipeline>

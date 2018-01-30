@@ -1,0 +1,110 @@
+----------------------
+DataCollection task
+
+Executed at: 1517224013
+----------------------
+
+RestService --
+
+User: invalid
+Pwd: invalid
+
+
+Output data :
+
+Document: 
+- LightIntensity = 5000 (INT)
+- DeviceId = 1 (INT)
+- idMeasure = 1234567 (INT)
+
+Document: 
+- LightIntensity = 4000 (INT)
+- DeviceId = 2 (INT)
+- idMeasure = 1234568 (INT)
+
+----------------------
+DataIntegration task
+
+Executed at: 1517224014
+----------------------
+
+
+Output data :
+
+Document: 
+- idMeasure = 1234567 (INT)
+- Coordinates = 45.799289699999996, 9.092762 (STRING)
+- DeviceId =  (INT)
+- LightIntensity = 5000 (INT)
+
+Document: 
+- idMeasure = 1234568 (INT)
+- Coordinates = 45.799289699999996, 9.092762 (STRING)
+- DeviceId = 2 (INT)
+- LightIntensity = 4000 (INT)
+
+----------------------
+DataCleaning task
+
+Executed at: 1517224015
+----------------------
+
+Operation list:
+
+- FormatData()
+
+- RemoveNull()
+
+
+Output data :
+
+Document: 
+- Coordinates = 45.799289699999996, 9.092762 (STRING)
+- LightIntensity =  (INT)
+
+Document: 
+- Coordinates = 45.799289699999996, 9.092762 (STRING)
+- LightIntensity =  (INT)
+
+----------------------
+DataAnalysis task
+
+Executed at: 1517224016
+----------------------
+
+- Category: Prediction
+
+
+Output data :
+
+Document: 
+- Coordinates = 45.799289699999996, 9.092762 (STRING)
+- LightIntensity = 5000 (INT)
+
+Document: 
+- Coordinates = 45.799289699999996, 9.092762 (STRING)
+- LightIntensity =  (INT)
+
+----------------------
+DataVisualization task
+
+Executed at: 1517224017
+----------------------
+
+- Diagram
+
+
+
+
+---- End of the PipeLine ----
+
+
+
+
+
+
+
+
+
+
+
